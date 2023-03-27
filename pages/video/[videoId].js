@@ -4,6 +4,9 @@ import styles from "../../styles/Video.module.css";
 import clsx from "classnames";
 import NavBar from "../../components/nav/navbar";
 import {getYoutubeVideoById} from "../../lib/videos";
+import DisLike from "../../components/icons/dislike-icon";
+import Like from "../../components/icons/like-icon";
+
 
 
 Modal.setAppElement("#root");
@@ -75,6 +78,8 @@ const Video = ({video}) =>{
                  src={`https://www.youtube.com/embed/${router.query.videoId}?autoplay=0&origin=http://example.com&controls=0&rel=1`}
                  frameBorder="0"
                 ></iframe>
+                <Like />
+                <DisLike />
                 <div className={styles.modalBody}>
                     <div className={styles.modalBodyContent}>
                         <div className={styles.col1}>
