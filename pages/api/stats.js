@@ -10,14 +10,15 @@ export default async function stats(req,res){
             if (!token){
                 res.stats(403).send ();
             } else {
-                const decoded = jwt.verify(token, process.env.HASURA_GRAPHQL_JWT_SECRET);
-                console.log(decoded);
+                const videoId = req.query.videoId;
+                const decodedToken = jwt.verify(token, process.env.HASURA_GRAPHQL_JWT_SECRET);
+                console.log(decodedToken);
                 
-                const userId = "did:ethr:0xc584521102204e3803437934b48e294011a65bE4";
-                const videoId = "2uK12nP2LIw";
+                const userId = decodedToken.issuer;
+                //const videoId = "2uK12nP2LIw";
                 const findVideoId = await findVideoIdByUser(token, userId,videoId);
                 console.log({ findVideoId})
-                res.send({ msg: "it works", decoded, findVideoId});
+                res.send({ msg: "it works", decodedToken, findVideoId});
     
             }
 
