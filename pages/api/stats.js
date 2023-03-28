@@ -15,7 +15,7 @@ export default async function stats(req,res){
                 
                 const userId = "did:ethr:0xc584521102204e3803437934b48e294011a65bE4";
                 const videoId = "2uK12nP2LIw";
-                const findVideoId = await findVideoIdByUser(userId,videoId);
+                const findVideoId = await findVideoIdByUser(token, userId,videoId);
                 console.log({ findVideoId})
                 res.send({ msg: "it works", decoded, findVideoId});
     
