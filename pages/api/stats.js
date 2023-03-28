@@ -9,7 +9,7 @@ export default async function stats(req,res){
             if (!token){
                 res.stats(403).send ();
             } else {
-                var decoded = jwt.verify(token, process.env.JWT_SECRET);
+                const decoded = jwt.verify(token, process.env.HASURA_GRAPHQL_JWT_SECRET);
                 console.log(decoded);
                 res.send({ msg: "it works", decoded});
     
