@@ -11,7 +11,12 @@ export default async function stats(req,res){
             } else {
                 const decoded = jwt.verify(token, process.env.HASURA_GRAPHQL_JWT_SECRET);
                 console.log(decoded);
-                res.send({ msg: "it works", decoded});
+                
+                const userId = "did:ethr:0xc584521102204e3803437934b48e294011a65bE4";
+                const videoId = "2uK12nP2LIw";
+                const findVideoId = await findVideoIdByUser(userId,videoId);
+                console.log({ findVideoId})
+                res.send({ msg: "it works", decoded, findVideoId});
     
             }
 
