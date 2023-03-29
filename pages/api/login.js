@@ -27,7 +27,12 @@ export default async function login(req, res) {
       console.log({ token });
 
       const isNewUserQuery = await isNewUser(token, metadata.issuer);
-      isNewUserQuery && (await createNewUser(token,metadata));
+      isNewUserQuery && (await createNewUser(token,
+        issuer,
+        email,
+        publicAddress,
+        id
+      ));
       setTokenCookie(token,res);
       
       res.setHeader("Access-Control-Allow-Origin", "*"); // set the CORS header
