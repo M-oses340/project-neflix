@@ -56,6 +56,11 @@ export default function Home({ disneyVideos, travelVideos,productivityVideos,pop
          <SectionCards title="Travel" videos={travelVideos} size="small"/>
          <SectionCards title="Productivity" videos={productivityVideos} size="medium"/>
          <SectionCards title="Popular" videos={popularVideos} size="small"/>
+         <SectionCards
+            title="Watch it again"
+            videos={watchItAgainVideos}
+            size="small"
+          />
         </div>
       </div>
     </div>
