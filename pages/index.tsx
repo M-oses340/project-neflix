@@ -3,24 +3,40 @@ import NavBar from "../components/nav/navbar";
 import styles from '@/styles/Home.module.css'
 import Banner from "../components/banner";
 import SectionCards from "../components/card/section-cards";
-import {getVideos,getPopularVideos} from "../lib/videos"
+import {
+  getPopularVideos,
+  getVideos,
+  getWatchItAgainVideos,
+} from "../lib/videos";
 
 
 
 export async function getServerSideProps () {
+  const userId = "";
+  const token = "";
+
+  const watchItAgainVideos = await getWatchItAgainVideos(userId, token);
+
+  console.log({ watchItAgainVideos });
   const disneyVideos =  await getVideos("disney trailer");
   const travelVideos =  await getVideos("travel");
   const productivityVideos =  await getVideos("productivity");
   const popularVideos = await getPopularVideos();
 
-  return { props:{disneyVideos, travelVideos, productivityVideos,popularVideos}}
+  return { 
+    props: {
+      disneyVideos,
+      travelVideos,
+      productivityVideos,
+      popularVideos,
+      watchItAgainVideos,
+    },
+  }
   
 }
 
-export default function Home({ disneyVideos, travelVideos,productivityVideos,popularVideos }) {
-
-  
-  
+export default function Home({ disneyVideos, travelVideos,productivityVideos,popularVideos , watchItAgainVideos,}) {
+  console.log({ watchItAgainVideos });
   return (
     <div className={styles.container}>
       <Head>
