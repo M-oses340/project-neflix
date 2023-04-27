@@ -66,16 +66,16 @@ const NavBar = () => {
     <div className={styles.container}>
       <div className={styles.wrapper}>
         <Link className={styles.logoLink} href="/">
-          <a>
+          <>
             <div className={styles.logoWrapper}>
               <Image
                 src="/static/netflix.svg"
                 alt="Netflix logo"
-                width="128px"
-                height="34px"
+                width="128"
+                height="34"
               />
             </div>
-          </a>
+          </>
         </Link>
         <ul className={styles.navItems}>
           <li className={styles.navItem} onClick={handleOnClickHome}>

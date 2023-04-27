@@ -21,6 +21,6 @@ export default async function logout(req, res) {
        res.end();
     } catch (error) {
        console.error({ error });
-     res.status(401).json({ message: "User is not logged in" });
+      res.status(401).json({ message: "User is not logged in" });
     }
 }
