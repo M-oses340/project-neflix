@@ -11,9 +11,11 @@ import {
 
 
 
-export async function getServerSideProps () {
-  const userId = "";
-  const token = "";
+export async function getServerSideProps (context) {
+  
+  const token = context.req ? context.req?.cookies.token : null;
+  console.log({ token });
+  const userId = "<userid>";
 
   const watchItAgainVideos = await getWatchItAgainVideos(userId, token);
 
