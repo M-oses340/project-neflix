@@ -8,6 +8,7 @@ import {
   getVideos,
   getWatchItAgainVideos,
 } from "../lib/videos";
+import { verifyToken } from "../lib/utils";
 
 
 
@@ -15,7 +16,19 @@ export async function getServerSideProps (context) {
   
   const token = context.req ? context.req?.cookies.token : null;
   console.log({ token });
-  const userId = "<userid>";
+  
+  const userId = await verifyToken(token);
+
+  console.log({ userId });
+  if (!userId) {
+    return {
+      props: {},
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    };
+  }
 
   const watchItAgainVideos = await getWatchItAgainVideos(userId, token);
 
