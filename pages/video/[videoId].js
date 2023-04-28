@@ -53,6 +53,7 @@ export async function getStaticPaths() {
 
 const Video = ({video}) =>{
     const router = useRouter();
+    const videoId = router.query.videoId;
 
     const [toggleLike,setToggleLike] = useState(false);
     const [toggleDisLike,setToggleDisLike] = useState(false);
@@ -65,7 +66,7 @@ const Video = ({video}) =>{
         statistics:{viewCount} = {viewCount:0}
     } = video;
     useEffect(() => {
-        const handleLikeDislikeService = async () => {
+        const handleLikeDislikeService = async (videoId) => {
           const response = await fetch(`/api/stats?videoId=${videoId}`, {
             method: "GET",
           });
@@ -80,7 +81,7 @@ const Video = ({video}) =>{
                 }
             }
         };
-        handleLikeDislikeService();
+        handleLikeDislikeService(videoId);
     }, [videoId]);
 
     const handleToggleDisLike = () =>{

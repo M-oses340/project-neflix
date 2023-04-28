@@ -1,5 +1,5 @@
 import { magicAdmin } from "../../lib/magic";
-import { removeTokenCookie } from "../../lib/cookies";
+import { removeTokenCookie } from "../lib/db/cookies";
 import { verifyToken } from "../../lib/utils";
 
 export default async function logout(req, res) {

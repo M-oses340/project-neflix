@@ -54,7 +54,7 @@ export default function Home({ disneyVideos, travelVideos,productivityVideos,pop
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.main}>
-        <NavBar username="mosesomwa7@gmail.com"/>
+        <NavBar username="mosesomwa98@gmail.com"/>
         <Banner 
           videoId="2uK12nP2LIw"
           title="Blacklist"
