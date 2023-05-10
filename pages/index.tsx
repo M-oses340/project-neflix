@@ -12,7 +12,7 @@ import { redirectUser } from "../utils/redirectUser";
 
 
 
-export async function getServerSideProps (context) {
+export async function getServerSideProps (context: any) {
   
   const { userId, token } = await redirectUser(context);
   if (!userId) {
